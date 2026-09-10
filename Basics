@@ -1,0 +1,85 @@
+// 1. Simple Wire
+module top_module( input in, output out );
+    assign out = in;
+endmodule
+
+
+// 2. Four Wires
+module top_module(
+    input a,
+    input b,
+    input c,
+    input d,
+    output w,
+    output x,
+    output y,
+    output z
+);
+    assign w = a;
+    assign x = b;
+    assign y = c;
+    assign z = d;
+endmodule
+
+
+// 3. Inverter
+module top_module( input in, output out );
+    assign out = ~in;
+endmodule
+
+
+// 4. AND Gate
+module top_module( input a, input b, output out );
+    assign out = a & b;
+endmodule
+
+
+// 5. NOR Gate
+module top_module( input a, input b, output out );
+    assign out = ~(a | b);
+endmodule
+
+
+// 6. XNOR Gate
+module top_module( input a, input b, output out );
+    assign out = ~(a ^ b);
+endmodule
+
+
+// 7. Declaring Wires
+module top_module(
+    input a,
+    input b,
+    input c,
+    output out,
+    output out_n
+);
+    wire w1;
+    wire w2;
+    wire w3;
+
+    assign w1 = a & b;
+    assign w2 = w1 & c;
+    assign out = w2;
+    assign out_n = ~w2;
+endmodule
+
+
+//8.7458chip
+module top_module ( 
+    input p1a, p1b, p1c, p1d, p1e, p1f,
+    output p1y,
+    input p2a, p2b, p2c, p2d,
+    output p2y );
+wire a,b,c,d;
+    assign a=p2a&p2b;
+    assign b=p2c&p2d;
+    
+    assign c=p1a&p1b&p1c;
+    assign d=p1d&p1e&p1f;
+    
+    assign p1y=c|d;
+    assign p2y=a|b;
+    
+
+endmodule
